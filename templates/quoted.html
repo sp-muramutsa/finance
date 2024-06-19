@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Register
+{% endblock%}
+
+{% block main %}
+ Current Price For {{symbol}} Stock
+<table class="table">
+    <tr>
+        <th>Symbol</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>{{ symbol }}</td>
+        <td>{{ price|usd }}</td>
+    </tr>
+</table>
+{% endblock %}

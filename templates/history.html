@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Your Portfolio's History
+{% endblock%}
+
+{% block main %}
+Your Stock Portfolio
+<table class="table">
+    <tr>
+        <th>STOCK</th>
+        <th>TRANSACTION</th>
+        <th>PRICE</th>
+        <th>SHARES</th>
+        <th>DATE</th>
+    </tr>
+    {% for transaction in transactions %}
+    <tr>
+        <td> {{transaction["symbol"].upper() }}</td>
+        <td> {{transaction["transaction_type"] }}</td>
+        <td> {{transaction["unit_price"]|usd }}</td>
+        <td> {{transaction["shares"] }}</td>
+        <td> {{transaction["time_of_transaction"] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+

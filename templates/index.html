@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Your Stock Portfolio
+{% endblock%}
+
+{% block main %}
+Your Stock Portfolio
+<table class="table">
+    <tr>
+        <th>STOCK</th>
+        <th>SHARES</th>
+        <th>TOTAL STOCKS WORTH</th>
+    </tr>
+    {% for symbol, details in stocks.items() %}
+    <tr>
+        <td>{{ symbol.upper() }}</td>
+        <td>{{ details.total_shares }}</td>
+        <td>{{ details.stock_total_worth|usd }}</td>
+    </tr>
+    {% endfor %}
+    <tr class="table-primary">
+        <th>TOTAL</th>
+        <th></th>
+        <th>{{ total_current_worth|usd }}</th>
+    </tr>
+    <tr class="table-primary" >
+        <th>CASH BALANCE</th>
+        <th></th>
+        <th>{{ cash_balance|usd }}</th>
+    </tr>
+</table>
+{% endblock %}
+
